@@ -49,7 +49,7 @@ var education = {
 			"url": "https://www.coursera.org/learn/machine-learning/"
 		}
 	]
-}
+};
 
 var work = {
 	"jobs": [
@@ -68,7 +68,7 @@ var work = {
 	}
 
 	]
-}
+};
 
 
 var projects = {
@@ -80,7 +80,7 @@ var projects = {
 		"images": ""
 	}
 	]
-}
+};
 
 function inName(OldName) {
 	var name_array = OldName.split(" ");
@@ -122,8 +122,8 @@ if (bio.skills.length > 0) {
 
 	var formattedSkills =[];
 	for (var i=0, iLen=bio.skills.length; i<iLen; i++) {
-		formattedSkills.push(HTMLskills.replace("%data%",bio.skills[i]))
-	};
+		formattedSkills.push(HTMLskills.replace("%data%",bio.skills[i]));
+	}
 	$("#skills-h3").append(formattedSkills);
 
 }
@@ -134,7 +134,7 @@ displayWork();
 displayEducaiton();
 
 function displayEducaiton(){
-	for (school in education.schools) {
+	for (var school = 0; i<education.schools.length; school++) {
 		$("#education").append(HTMLschoolStart);
 		var formattedschoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
 		var formattedschoolLoc = HTMLschoolLocation.replace("%data%",education.schools[school].location);
@@ -147,15 +147,15 @@ function displayEducaiton(){
 		$(".education-entry:last").append(formattedschoolMajor);
 	if (education.OnlineCourses.length >0 ){
 		$("#education").append(HTMLonlineClasses);
-		for (course in education.OnlineCourses) {
-		var formattedoctitle = HTMLonlineTitle.replace("%data%",education.OnlineCourses[course].title);
-		var formattedocschool = HTMLonlineSchool.replace("%data%",education.OnlineCourses[course].school);
-		var formattedocdate = HTMLonlineDates.replace("%data%",education.OnlineCourses[course].date);
-		var formattedocURL = HTMLonlineURL.replace("%data%",education.OnlineCourses[course].url);
-		$("#education").append(HTMLschoolStart);
-		$(".education-entry:last").append(formattedoctitle+formattedocschool);
-		$(".education-entry:last").append(formattedocdate);
-		$(".education-entry:last").append(formattedocURL);
+		for (var course = 0; i<education.OnlineCourses.length; course++) {
+      var formattedoctitle = HTMLonlineTitle.replace("%data%",education.OnlineCourses[course].title);
+      var formattedocschool = HTMLonlineSchool.replace("%data%",education.OnlineCourses[course].school);
+      var formattedocdate = HTMLonlineDates.replace("%data%",education.OnlineCourses[course].date);
+      var formattedocURL = HTMLonlineURL.replace("%data%",education.OnlineCourses[course].url);
+      $("#education").append(HTMLschoolStart);
+      $(".education-entry:last").append(formattedoctitle+formattedocschool);
+      $(".education-entry:last").append(formattedocdate);
+      $(".education-entry:last").append(formattedocURL);
 		}
 
 	}
@@ -164,13 +164,13 @@ function displayEducaiton(){
 }
 
 function displayWork(){
-	for (workitem in work.jobs) {
+	for (var workitem = 0; i<work.jobs.length; workitem++) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedemployer = HTMLworkEmployer.replace("%data%",work.jobs[workitem].employer);
 		var formattedworktitle = HTMLworkTitle.replace("%data%",work.jobs[workitem].title);
 		var formattedworkdate = HTMLworkDates.replace("%data%",work.jobs[workitem].dates);
 		var formattedworkdesc = HTMLworkDescription.replace("%data%",work.jobs[workitem].description);
-		$(".work-entry:last").append(formattedemployer+formattedworktitle)
+		$(".work-entry:last").append(formattedemployer+formattedworktitle);
 		$(".work-entry:last").append(formattedworkdate);
 		$(".work-entry:last").append(formattedworkdesc);
 
@@ -180,12 +180,12 @@ function displayWork(){
 
 
 projects.display= function(){
-	for (project in projects.projects) {
+	for (var project = 0; i<projects.projects.length; project++) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedprojtitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
 		var formattedprojdate = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
 		var formattedprojdesc = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-		$(".project-entry:last").append(formattedprojtitle)
+		$(".project-entry:last").append(formattedprojtitle);
 		$(".project-entry:last").append(formattedprojdate);
 		$(".project-entry:last").append(formattedprojdesc);
 
@@ -194,7 +194,7 @@ projects.display= function(){
 			$(".project-entry:last").append(formattedprojimage);
 		}
 
-	}}
+	}};
 projects.display();
 
 
