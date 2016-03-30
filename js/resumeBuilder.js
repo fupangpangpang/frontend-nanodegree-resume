@@ -179,6 +179,9 @@ function displayWork(){
 }
 
 
+
+$('p').each(CountWord());
+
 projects.display= function(){
 	for (var project = 0; i<projects.projects.length; project++) {
 		$("#projects").append(HTMLprojectStart);
